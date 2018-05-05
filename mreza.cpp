@@ -85,12 +85,6 @@ set<Linija> presekSkupova(const set<Linija>& a, const set<Linija>& b) {
         }
     }
 
-    for (auto linija : b) {
-        if (a.find(linija) != a.end()) {
-            presek.insert(linija);
-        }
-    }
-
     return presek;
 }
 
