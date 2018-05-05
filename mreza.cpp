@@ -65,6 +65,8 @@ bool Mreza::pripadaZoni(const Linija& linija, int zona) {
 }
 
 set<Linija> Mreza::getLinije(int zona) {
+    // Linije nisu indeksirane po zoni, ali ako se ispostavi da je pretraga linija po zoni spora,
+    // mozemo da ih indeksiramo i po zoni.
     set<Linija> linijeZona;
     for (auto linijaEntry : linije) {
         if (pripadaZoni(linijaEntry.second, zona)) {
