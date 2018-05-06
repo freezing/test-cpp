@@ -10,30 +10,21 @@
 
 #include "linija.h"
 #include "stajaliste.h"
+#include "baza_linija.h"
+#include "baza_stajalista.h"
 
 using namespace std;
 
 class Mreza {
 private:
-    // Index linija po sifri linije.
-    map<string, Linija> linije;
-    // Index linija po sifri stajalista.
-    map<int, set<string>> linijeIndexPoSifriStajalista;
-
-    // Index stajalista po sifri stajalista.
-    map<int, Stajaliste> stajalista;
-
-    void dodajLinijuUIndexPoSifriStajalista(const Linija& linija);
-    bool pripadaZoni(const Smer& smer, int zona);
-    bool pripadaZoni(const Linija& linija, int zona);
-    set<Linija> getLinije(int zona);
+    shared_ptr<BazaStajalista> bazaStajalistaPtr;
+    shared_ptr<BazaLinija> bazaLinijaPtr;
 
 public:
     Mreza(const set<Linija>& linije, const set<Stajaliste>& stajalista);
-    set<Linija> getLinije(const set<int>& zone);
-    set<Linija> getLinijeZaStajaliste(int sifraStajalista);
-
     static Mreza parsiraj(const string& filename);
+    shared_ptr<BazaLinija> getBazaLinija() const { return bazaLinijaPtr; }
+    shared_ptr<BazaStajalista> getBazaStajalista() const { return bazaStajalistaPtr; }
 };
 
 #endif //OOPCPP_MREZA_H_H

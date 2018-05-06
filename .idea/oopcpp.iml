@@ -2,14 +2,17 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/mreza.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/smer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baza_stajalista.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/linija.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lokacija.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mreza.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/stajaliste.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/mreza.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baza_linija.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/linija.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baza_linija.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/stajaliste.h" isTestSource="false" />
     </content>
