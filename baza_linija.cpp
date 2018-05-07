@@ -6,6 +6,34 @@
 #include "linija.h"
 #include "baza_linija.h"
 
+void BazaLinija::dodajLiniju(const Linija &linija) {
+    // Napravi index za linije po sifri linije (osnovni).
+    this->linije[linija.getSifra()] = linija;
+    // Napravi index za linije po sifri stajalista.
+    dodajLinijuUIndexPoSifriStajalista(linija);
+}
+
+void BazaLinija::obrisiLiniju(const string &sifraLinije) {
+    // Obrisi iz osnovnog indeksa.
+    linije.erase(sifraLinije);
+    // Obrisi iz indeksa po sifri stajalista.
+    for (auto entry : linijeIndexPoSifriStajalista) {
+        entry.second.erase(sifraLinije);
+    }
+}
+
+void BazaLinija::promeniSifruLinije(const string& staraSifra, const string& novaSifra) {
+    // Nadji staru liniju.
+    Linija staraLinija = linije[staraSifra];
+    // Napravi novu liniju.
+    Linija novaLinija(novaSifra, staraLinija.getOkretnica1(), staraLinija.getOkretnica2(),
+                      staraLinija.getSmerA(), staraLinija.getSmerB());
+
+    // Izbaci staru i dodaj novu.
+    obrisiLiniju(staraSifra);
+    dodajLiniju(novaLinija);
+}
+
 void BazaLinija::dodajLinijuUIndexPoSifriStajalista(const Linija& linija) {
     vector<int> stajalistaSmerA = linija.getSmerA().getSifreStajalista();
     vector<int> stajalistaSmerB = linija.getSmerB().getSifreStajalista();
@@ -23,10 +51,7 @@ void BazaLinija::dodajLinijuUIndexPoSifriStajalista(const Linija& linija) {
 
 BazaLinija::BazaLinija(const set<Linija> &linije, const shared_ptr<BazaStajalista>& bazaStajalistaPtr) {
     for (auto linija : linije) {
-        // Napravi index za linije po sifri linije (osnovni).
-        this->linije[linija.getSifra()] = linija;
-        // Napravi index za linije po sifri stajalista.
-        dodajLinijuUIndexPoSifriStajalista(linija);
+        dodajLiniju(linija);
     }
     this->bazaStajalistaPtr = bazaStajalistaPtr;
 }

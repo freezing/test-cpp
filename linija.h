@@ -28,6 +28,8 @@ public:
 
     const Smer& getSmerA() const { return smerA; }
     const Smer& getSmerB() const { return smerB; }
+    const string& getOkretnica1() const { return okretnica1; }
+    const string& getOkretnica2() const { return okretnica2; }
 
     string getSifra() const {
         return sifra;

@@ -25,13 +25,15 @@ private:
     bool pripadaZoni(const Smer& smer, int zona);
     bool pripadaZoni(const Linija& linija, int zona);
     void dodajLinijuUIndexPoSifriStajalista(const Linija& linija);
+    void dodajLiniju(const Linija& linija);
+    void obrisiLiniju(const string& sifraLinije);
 
 public:
     BazaLinija(const set<Linija>& linije, const shared_ptr<BazaStajalista>& bazaStajalistaPtr);
     set<Linija> getLinije(int zona);
     set<Linija> getLinije(const set<int>& zone);
     set<Linija> getLinijeZaStajaliste(int sifraStajalista);
-
+    void promeniSifruLinije(const string& staraSifra, const string& novaSifra);
 };
 
 #endif //OOPCPP_BAZA_LINIJA_H
